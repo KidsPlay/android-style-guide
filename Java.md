@@ -1,3 +1,4 @@
+
 # Java
 
 아래 정의되어 있는 가이드외에는 [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)를 따른다.
@@ -19,11 +20,11 @@ public void loadCar(Context context, int hashId, CarListener listener);
 | ------------- | ------------- |
 | `EXTRA_` | Intent |
 | `PREF_` | SharedPreferences |
-| `ARGUMENT_` | Fragment Arguments |
-| `QUERY_` | Deeplink query parameter key |
+| `ARG_` | Fragment Arguments |
+| `QUERY_` | ~~Deeplink query parameter key~~ |
 - Key-Value로 활용되는 컴포넌트들의 Key는  `static final`로 정의한다.
 - Key로 정의된 이름의 String값은 동일하게 맞춰준다.
-- Deeplink에서 사용되는 Query Parameter의 경우 `aaa://bb?key1=value1&key2=value2`와 같은 방식으로 전달되기때문에 query key와 맞춰준다.
+- ~~Deeplink에서 사용되는 Query Parameter의 경우 `aaa://bb?key1=value1&key2=value2`와 같은 방식으로 전달되기때문에 query key와 맞춰준다.~~
 ```java
 public static final String EXTRA_HASH_ID = "EXTRA_HASH_ID";
 public static final String EXTRA_TRADE = "EXTRA_TRADE";
@@ -127,7 +128,7 @@ ImageLoader.load(user.getProfileUrl())
 
 ## Annotation
 - 외부에서 호출할 수 있는 public 함수에서는 항상 `@NonNull` / `@Nullable` 어노테이션을 추가해준다.
-
+androidx.annotation
 ```java
 
     public RegisterStepManager(@NonNull RegisterContract.View view,
@@ -163,7 +164,7 @@ ImageLoader.load(user.getProfileUrl())
 - 예) `RegisterStepManager`, `RegisterCarInfoConfirmManager`등
 
 ## if문
-- `if (isChecked == false)` 와 같은 코드는 명백한 Lint warning이므로 사용하지 않는다.
+~~- `if (isChecked == false)` 와 같은 코드는 명백한 Lint warning이므로 사용하지 않는다.~~
 ```java
 if (isUnchekced)
 ```
